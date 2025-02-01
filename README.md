@@ -14,7 +14,7 @@ Before using the script, make sure you have the following:
 ## Setup
 
 1. Clone or download this repository to your local machine.
-2. Install the necessary Python libraries:
+2. Install the necessary Python libraries: (I recommend creating a virtual environment)
 
    ```
    pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
