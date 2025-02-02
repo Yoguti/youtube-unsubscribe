@@ -2,7 +2,8 @@
 
 This project is a Python-based tool to automate the process of uploading videos to YouTube, converting `.ts` (MPEG-TS) files to `.mp4`, and managing playlists (If your files are already in .mp4 format, the script will skip conversion). It is designed to convert a sequence of `.ts` files into `.mp4` and upload them to a YouTube playlist, streamlining the upload process for video content.
 
-## Features
+## Usage tip
+I’ve provided a detailed setup process below. However, if you prefer, you can watch [this](https://www.youtube.com/watch?v=sp3qM2URcig) video, which covers the basic cloud setup, and follow along with it instead.
 
 - **Convert .ts to .mp4:** Convert `.ts` files to `.mp4` using `ffmpeg` without re-encoding the video.
 - **Upload to YouTube:** Upload converted `.mp4` videos to YouTube with customizable metadata (title, description, privacy settings, etc.).
