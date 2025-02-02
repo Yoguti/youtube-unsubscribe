@@ -11,6 +11,7 @@ import pickle
 SCOPES = [
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube.force-ssl"  # Added for playlist manipulation
+    "https://www.googleapis.com/auth/youtube" # Necessary for full manipulation
 ]
 TOKEN_FILE = 'token.json'
 
