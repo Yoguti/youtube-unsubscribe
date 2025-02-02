@@ -90,6 +90,7 @@ Before you begin using this script, make sure you have the following:
 - The script processes a maximum of 10 videos at a time. Adjust the loop in `main()` for different use cases.
 - Temporary `.mp4` files are saved in a `temp_mp4` folder and removed after the upload.
 - Failed uploads or conversions will be skipped, and the script will continue with the next video.
+- The  script contains logic for updating the video name with a variable i. If you do not desire to do so, simply delete the update or alter the logic inside main.py
 
 ## License
 
