@@ -45,11 +45,6 @@ Before you begin using this script, make sure you have the following:
    - Click "Create Credentials" and choose "OAuth 2.0 Client IDs".
    - Once created, download the credentials file in JSON format and save it securely on your system.
 
----
-
-Make sure you've completed these steps before moving on to the next parts of the script setup.
-
-
 ## Requirements
 
 - Python 3.x
