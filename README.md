@@ -43,7 +43,7 @@ This project is a Python-based tool to automate the process of uploading videos 
 1. Place your `.ts` video files in the specified directory.
 2. Run the script:
     ```
-    python uploader.py
+    python main.py
     ```
 3. The script will:
     - Convert `.ts` files to `.mp4`
