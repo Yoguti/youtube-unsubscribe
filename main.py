@@ -43,17 +43,17 @@ def get_numbered_video_path(starting_path, number):
     return None
 
 def main():
-    starting_path = "/path/to/your/video/folder"  # Replace with your folder path
+    starting_path = "your/folder/path"  # Replace with your folder path
     temp_folder = os.path.join(starting_path, "temp_mp4")
     
     # Create temp folder if it doesn't exist
     os.makedirs(temp_folder, exist_ok=True)
     
-    video_description = "Some description here"
-    privacy = "unlisted"
+    video_description = "desired description"
+    privacy = "unlisted" #You may change this to public or private
     category = "22"  # Education category
-    video_tags = ["tag1", "tag2", "tag3"]
-    playlist_id = "your-playlist if necessary"
+    video_tags = [" tag1", " tag2", "tag3"]
+    playlist_id = "your playlist id if needed"
     
     i = 1  # Start from 1 (1-indexed)
     uploaded_videos = set()  # Keep track of uploaded video numbers
