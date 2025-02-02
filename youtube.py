@@ -1,3 +1,4 @@
+# youtube.py
 import os
 import google_auth_httplib2
 import google_auth_oauthlib
@@ -7,7 +8,10 @@ import googleapiclient.http
 import google.auth.transport.requests
 import pickle
 
-SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
+SCOPES = [
+    "https://www.googleapis.com/auth/youtube.upload",
+    "https://www.googleapis.com/auth/youtube.force-ssl"  # Added for playlist manipulation
+]
 TOKEN_FILE = 'token.json'
 
 def authenticate_youtube():
@@ -67,6 +71,40 @@ def upload_video(youtube, file_path, snippet_info, privacy_status):
         return response['id']
     return None
 
+def add_to_playlist(youtube, playlist_id, video_id):
+    """
+    Add a video to a specified playlist.
+    
+    Args:
+        youtube: Authenticated YouTube API service
+        playlist_id (str): ID of the target playlist
+        video_id (str): ID of the video to add
+        
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    try:
+        request_body = {
+            'snippet': {
+                'playlistId': playlist_id,
+                'resourceId': {
+                    'kind': 'youtube#video',
+                    'videoId': video_id
+                }
+            }
+        }
+        
+        youtube.playlistItems().insert(
+            part='snippet',
+            body=request_body
+        ).execute()
+        
+        print(f"Video {video_id} added to playlist {playlist_id}")
+        return True
+    except Exception as e:
+        print(f"Error adding video to playlist: {e}")
+        return False
+
 def youtube_upload(path, title, description, privacy_status, category_id, tags):
     """
     Upload a video to YouTube.
@@ -91,3 +129,37 @@ def youtube_upload(path, title, description, privacy_status, category_id, tags):
 
     youtube = authenticate_youtube()
     return upload_video(youtube, path, snippet_info, privacy_status)
+
+def youtube_upload_playlist(path, title, description, privacy_status, category_id, tags, playlist_id):
+    """
+    Upload a video to YouTube and add it to a specified playlist.
+    
+    Args:
+        path (str): Path to the video file
+        title (str): Title of the video
+        description (str): Description of the video
+        privacy_status (str): Privacy status ("private", "unlisted", or "public")
+        category_id (str): YouTube video category ID
+        tags (list): List of tags for the video
+        playlist_id (str): ID of the playlist to add the video to
+    
+    Returns:
+        tuple: (video_id, playlist_success) where video_id is the uploaded video's ID
+               and playlist_success is a boolean indicating if the video was added to the playlist
+    """
+    youtube = authenticate_youtube()
+    
+    # First upload the video
+    video_id = upload_video(youtube, path, {
+        "categoryId": category_id,
+        "title": title,
+        "description": description,
+        "tags": tags
+    }, privacy_status)
+    
+    if video_id:
+        # If video upload successful, add to playlist
+        playlist_success = add_to_playlist(youtube, playlist_id, video_id)
+        return video_id, playlist_success
+    
+    return None, False
