@@ -1,6 +1,6 @@
 # YouTube Uploader
 
-This project is a Python-based tool to automate the process of uploading videos to YouTube, converting `.ts` (MPEG-TS) files to `.mp4`, and managing playlists. It is designed to convert a sequence of `.ts` files into `.mp4` and upload them to a YouTube playlist, streamlining the upload process for video content.
+This project is a Python-based tool to automate the process of uploading videos to YouTube, converting `.ts` (MPEG-TS) files to `.mp4`, and managing playlists (If your files are already in .mp4 format, the script will skip conversion). It is designed to convert a sequence of `.ts` files into `.mp4` and upload them to a YouTube playlist, streamlining the upload process for video content.
 
 ## Features
 
