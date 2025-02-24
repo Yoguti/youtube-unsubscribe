@@ -70,6 +70,3 @@ The script will:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-
-Feel free to modify as needed!
