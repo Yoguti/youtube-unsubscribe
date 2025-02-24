@@ -68,8 +68,8 @@ The script will:
 - The script uses OAuth 2.0 authentication, and the token is stored in `token.json` to avoid re-authentication on every run.
 
 ## License
-This project is licensed under the MIT License.
 
----
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 Feel free to modify as needed!
